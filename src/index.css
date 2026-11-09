@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS Design Tokens ─────────────────────────────────────────────────────── */
+:root {
+  --color-cream: #faf8f4;
+  --color-sand: #e7d9c5;
+  --color-gold: #c9a96e;
+  --color-cocoa: #1e1a16;
+  --color-blush: #f3eae4;
+
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Slower, more premium easing */
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-base: 0.42s var(--ease-smooth);
+  --transition-slow: 0.65s var(--ease-luxury);
+
+  --radius-pill: 999px;
+  --radius-card: 1.5rem;
+}
+
+/* ─── Base Reset ─────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--color-cream);
+  color: var(--color-cocoa);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: none; /* hides default — custom cursor below */
+}
+
+/* Use default cursor for mobile/touch devices */
+@media (hover: none) {
+  body { cursor: auto; }
+  .cursor-dot,
+  .cursor-ring { display: none; }
+}
+
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+/* ─── Custom Cursor ──────────────────────────────────────────────────────────── */
+.cursor-dot {
+  pointer-events: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: width 0.2s, height 0.2s, opacity 0.2s;
+  will-change: transform;
+}
+
+.cursor-ring {
+  pointer-events: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 169, 110, 0.5);
+  transform: translate(-50%, -50%);
+  z-index: 9998;
+  transition: width 0.35s var(--ease-smooth),
+              height 0.35s var(--ease-smooth),
+              border-color 0.2s,
+              opacity 0.2s;
+  will-change: transform;
+}
+
+/* Expand ring on interactive element hover */
+body.cursor-hover .cursor-ring {
+  width: 56px;
+  height: 56px;
+  border-color: rgba(201, 169, 110, 0.8);
+}
+
+body.cursor-hover .cursor-dot {
+  width: 4px;
+  height: 4px;
+  opacity: 0.6;
+}
+
+/* Restore system cursor inside inputs */
+input, textarea, select {
+  cursor: text;
+}
+
+a, button, [role="button"] {
+  cursor: none;
+}
+
+/* ─── Focus Visible ──────────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ─── Selection ──────────────────────────────────────────────────────────────── */
+::selection {
+  background-color: rgba(201, 169, 110, 0.22);
+  color: var(--color-cocoa);
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--color-cream); }
+::-webkit-scrollbar-thumb { background: var(--color-sand); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #d7c4ae; }
+
+/* ─── Interactive Defaults ───────────────────────────────────────────────────── */
+button, a, input, textarea, select {
+  transition: all var(--transition-base);
+}
+
+/* ─── Component Utilities ────────────────────────────────────────────────────── */
+@layer components {
+
+  .input-field {
+    @apply w-full rounded-2xl border border-sand bg-cream px-4 py-3 text-sm text-cocoa
+      placeholder:text-cocoa/40
+      focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/20
+      transition-all;
+    transition-duration: 0.4s;
+  }
+
+  /* Primary button — dark fill → gold on hover + subtle glow */
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center overflow-hidden rounded-full
+      bg-cocoa px-6 py-3 text-xs font-semibold uppercase tracking-widest text-white
+      shadow-[0_2px_12px_rgba(30,26,22,0.18)]
+      transition-all duration-500
+      hover:bg-gold hover:shadow-[0_4px_22px_rgba(201,169,110,0.45)]
+      active:scale-[0.97]
+      focus-visible:ring-2 focus-visible:ring-gold/50
+      disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Outline button — border → gold on hover */
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-full
+      border border-cocoa/20 px-5 py-2.5 text-xs font-semibold uppercase tracking-widest text-cocoa/80
+      transition-all duration-500
+      hover:border-gold hover:text-gold hover:shadow-[0_2px_14px_rgba(201,169,110,0.2)]
+      active:scale-[0.97];
+  }
+
+  /* Ghost CTA — for dark backgrounds */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-full
+      border border-white/30 px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] text-white/80
+      transition-all duration-500
+      hover:border-white hover:bg-white/10 hover:text-white
+      active:scale-[0.97];
+  }
+
+  .section-padding { @apply px-5 md:px-8; }
+  .section-width   { @apply mx-auto max-w-7xl; }
+
+  /* Card with slower, premium hover */
+  .card-base {
+    @apply rounded-3xl border border-sand/60 bg-white shadow-card;
+    transition: box-shadow 0.55s var(--ease-smooth), transform 0.55s var(--ease-smooth);
+  }
+  .card-base:hover {
+    box-shadow: 0 18px 48px rgba(30, 26, 22, 0.13);
+    transform: translateY(-2px);
+  }
+
+  /* Gold accent badge */
+  .badge {
+    @apply inline-block rounded-full bg-gold/10 px-3 py-1
+      text-2xs font-semibold uppercase tracking-widest text-gold backdrop-blur-sm;
+  }
+
+  /* Nav link underline reveal */
+  .nav-link-underline {
+    @apply relative text-sm tracking-wide;
+  }
+  .nav-link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0;
+    width: 0; height: 1px;
+    background: var(--color-gold);
+    transition: width 0.4s var(--ease-smooth);
+  }
+  .nav-link-underline:hover::after,
+  .nav-link-underline.active::after {
+    width: 100%;
+  }
+
+  /* Shimmer loading placeholder */
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+    background: #f0ece6;
+  }
+  .shimmer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent);
+    animation: shimmer 1.8s linear infinite;
+  }
+
+  /* Gold divider line */
+  .gold-line {
+    @apply mx-auto h-px w-16 bg-gradient-to-r from-transparent via-gold to-transparent opacity-60;
+  }
+}
