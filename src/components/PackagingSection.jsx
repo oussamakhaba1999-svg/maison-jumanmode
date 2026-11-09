@@ -11,7 +11,7 @@ const highlights = [
       </svg>
     ),
     label: 'Secure Packaging',
-    description: 'Each piece wrapped in signature tissue and sealed with a wax stamp.',
+    description: 'We treat every creation with the ultimate luxury it deserves. Our packaging is meticulously designed to safely protect your handmade bags and delicate pieces, ensuring they arrive securely wrapped in our signature style, matching the elegance of your order.',
   },
   {
     icon: (
@@ -19,8 +19,8 @@ const highlights = [
         <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
       </svg>
     ),
-    label: 'Free Worldwide Delivery',
-    description: 'Complimentary tracked shipping on every order, anywhere in the world.',
+    label: 'Free Worldwide Delivery & Bridal Care',
+    description: 'We offer secure worldwide shipping for both our handmade bags and bridal/evening wear. Moreover, for our brides, our dedication goes beyond delivery: we stand by your side from A to Z, offering professional fitting sessions, pattern-making, tailoring, and even on-site assistance on your wedding day to dress you and ensure every detail is flawless until you step into your new life.',
   },
   {
     icon: (
@@ -29,7 +29,7 @@ const highlights = [
       </svg>
     ),
     label: '100% Handmade',
-    description: 'Crafted by expert artisans — no machines, no shortcuts.',
+    description: 'From our intricate crystal bead bags to our custom bridal corsets and detailed bead embroidery, every single element is crafted entirely by hand using traditional needle and thread, ensuring true artisanal excellence with no shortcuts.',
   },
   {
     icon: (
@@ -46,29 +46,28 @@ function PackagingSection() {
   return (
     <section className="section-width section-padding py-24" aria-label="Why MAISON JUMANMODE">
       <div className="overflow-hidden rounded-4xl border border-sand/60 bg-gradient-to-br from-cocoa to-cocoa-soft">
-        <div className="grid md:grid-cols-2">
+        <div className="grid lg:grid-cols-[minmax(0,1fr)_240px]">
           {/* Left — text */}
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col justify-center space-y-8 p-10 md:p-14"
+            className="flex flex-col justify-center space-y-10 p-6 sm:p-10 md:p-14"
           >
             <div>
               <p className="text-2xs font-semibold uppercase tracking-[0.4em] text-gold">
                 The MAISON JUMANMODE Promise
               </p>
               <h2 className="mt-4 font-heading text-4xl leading-tight text-white md:text-5xl">
-                More Than<br />a Bag.
+                More Than Just a Design.
               </h2>
-              <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/65">
-                Every order is an experience. From how it arrives at your door to the moment you
-                carry it — we obsess over every detail so you never have to.
+              <p className="mt-5 max-w-3xl text-sm leading-relaxed text-white/65">
+                Every piece is crafted with utmost care, professional expertise, and meticulous attention to detail—far beyond ordinary or commercial production. For our handmade bags, we carefully select the finest beads, crystals, premium lining fabrics, and exquisite accessories. For our bridal couture, we bring a refined elegance, ensuring every bride feels like royalty on her special day. We also offer expert garment alterations and modifications to perfection.
               </p>
             </div>
 
-            <div className="grid gap-5 sm:grid-cols-2">
+            <div className="grid gap-8 md:grid-cols-2">
               {highlights.map((item, i) => (
                 <motion.div
                   key={item.label}
@@ -83,7 +82,7 @@ function PackagingSection() {
                     <p className="text-xs font-semibold uppercase tracking-wider text-white/90">
                       {item.label}
                     </p>
-                    <p className="mt-1 text-xs leading-relaxed text-white/50">
+                    <p className="mt-1 text-sm leading-relaxed text-white/70">
                       {item.description}
                     </p>
                   </div>
@@ -98,13 +97,13 @@ function PackagingSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="relative hidden min-h-[420px] md:block"
+            className="relative hidden min-h-[420px] lg:block"
           >
             {/* Gold geometric accent */}
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="relative">
                 {/* Outer ring */}
-                <div className="h-64 w-64 rounded-full border border-gold/20" />
+                <div className="h-48 w-48 rounded-full border border-gold/20" />
                 {/* Mid ring */}
                 <div className="absolute inset-6 rounded-full border border-gold/30" />
                 {/* Inner circle */}
@@ -119,8 +118,8 @@ function PackagingSection() {
                     key={deg}
                     className="absolute left-1/2 top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/40"
                     style={{
-                      transform: `rotate(${deg}deg) translateY(-120px)`,
-                      transformOrigin: 'center 120px',
+                      transform: `rotate(${deg}deg) translateY(-90px)`,
+                      transformOrigin: 'center 90px',
                     }}
                   />
                 ))}

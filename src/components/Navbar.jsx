@@ -71,19 +71,19 @@ function Navbar() {
           : 'border-b border-sand/40 bg-cream/94 shadow-[0_1px_32px_rgba(30,26,22,0.07)] backdrop-blur-2xl'
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 md:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-3 py-3.5 sm:px-5 md:px-8">
 
         {/* ── Brand Logo + Tagline ── */}
         <Link
           to="/"
           aria-label={`${BRAND_NAME} – Home`}
-          className="group flex flex-shrink-0 items-center gap-3"
+          className="group flex flex-shrink-0 items-center gap-2 sm:gap-3"
         >
           <div className="relative">
             <img
               src={logoImg}
               alt={BRAND_NAME}
-              className={`h-10 w-10 rounded-full object-cover transition-all duration-700 md:h-11 md:w-11 ${
+              className={`h-8 w-8 rounded-full object-cover sm:h-10 sm:w-10 transition-all duration-700 md:h-11 md:w-11 ${
                 isHomeTop
                   ? 'ring-1 ring-white/25 brightness-105'
                   : 'ring-1 ring-sand group-hover:ring-gold/60'
@@ -100,14 +100,14 @@ function Navbar() {
           {/* Wordmark + signature */}
           <div className="flex flex-col leading-none">
             <span
-              className={`font-heading text-[11px] tracking-[0.08em] sm:text-base lg:text-lg transition-all duration-500 ${
+              className={`font-heading text-[10px] tracking-[0.04em] sm:tracking-[0.08em] sm:text-base lg:text-lg transition-all duration-500 ${
                 isHomeTop ? 'text-white' : 'text-cocoa'
               }`}
             >
               {BRAND_NAME}
             </span>
             <span
-              className={`mt-0.5 text-[8px] sm:text-[10px] font-light uppercase tracking-[0.28em] transition-all duration-500 ${
+              className={`mt-0.5 text-[7px] sm:text-[10px] font-light uppercase tracking-[0.12em] sm:tracking-[0.28em] transition-all duration-500 ${
                 isHomeTop ? 'text-white/45' : 'text-gold/70'
               }`}
             >
@@ -117,8 +117,8 @@ function Navbar() {
         </Link>
 
         {/* ── Desktop Nav ── */}
-        <nav aria-label="Main navigation" className="hidden md:block">
-          <ul className="flex items-center gap-9">
+        <nav aria-label="Main navigation" className="hidden lg:block">
+          <ul className="flex items-center gap-5 xl:gap-7">
             {NAV_LINKS.map((link) => (
               <li key={link.to}>
                 <NavLink
@@ -140,7 +140,7 @@ function Navbar() {
         </nav>
 
         {/* ── Actions ── */}
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-1.5 sm:gap-2.5">
 
           {/* Cart page link (desktop) */}
           <Link
@@ -159,7 +159,7 @@ function Navbar() {
           <button
             onClick={() => setIsOpen(true)}
             aria-label={`Open cart, ${itemCount} items`}
-            className={`relative rounded-full px-5 py-2.5 text-xs font-semibold uppercase tracking-widest transition-all duration-500 ${
+            className={`relative rounded-full px-3 py-2.5 sm:px-5 text-xs font-semibold uppercase tracking-widest transition-all duration-500 ${
               isHomeTop
                 ? 'border border-white/45 bg-white/10 text-white hover:bg-white hover:text-cocoa hover:shadow-[0_4px_18px_rgba(255,255,255,0.25)]'
                 : 'border border-gold/30 bg-white text-cocoa shadow-sm hover:border-gold hover:bg-gold hover:text-white hover:shadow-[0_4px_20px_rgba(201,169,110,0.4)]'
@@ -183,7 +183,7 @@ function Navbar() {
             onClick={() => setMenuOpen((prev) => !prev)}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
-            className={`inline-flex h-10 w-10 items-center justify-center rounded-full transition-all duration-500 md:hidden ${
+            className={`inline-flex h-10 w-10 items-center justify-center rounded-full transition-all duration-500 lg:hidden ${
               isHomeTop
                 ? 'border border-white/40 text-white'
                 : 'border border-sand bg-white text-cocoa shadow-sm hover:border-gold/40'

@@ -4,7 +4,8 @@ import { BRAND_NAME } from '../constants/navigation';
 import logoImg from '../assets/logos/ChatGPT Image 21 مارس 2026، 03_27_33 م.png';
 
 const footerLinks = [
-  { to: '/shop', label: 'Shop' },
+  { to: '/shop', label: 'Handmade Bags' },
+  { to: '/bridal', label: 'Bridal Dresses' },
   { to: '/about', label: 'About' },
   { to: '/contact', label: 'Contact' },
 ];
@@ -31,7 +32,7 @@ function Footer() {
               <p className="font-heading text-sm tracking-[0.12em] text-cocoa">{BRAND_NAME}</p>
             </div>
             <p className="text-xs leading-relaxed text-cocoa/60">
-              Handcrafted luxury bags, made in limited editions with crystal and passion.
+              Handmade bags and bridal couture, crafted with care, expertise, and attention to every detail.
             </p>
           </div>
 

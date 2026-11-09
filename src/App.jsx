@@ -10,6 +10,7 @@ import LuxuryCursor from './components/LuxuryCursor';
 
 // ─── Route-based Code Splitting ───────────────────────────────────────────────
 const HomePage            = lazy(() => import('./pages/HomePage'));
+const BridalPage = lazy(() => import('./pages/BridalPage'));
 const ShopPage            = lazy(() => import('./pages/ShopPage'));
 const ProductDetailsPage  = lazy(() => import('./pages/ProductDetailsPage'));
 const AboutPage           = lazy(() => import('./pages/AboutPage'));
@@ -29,6 +30,10 @@ function PageFallback() {
 
 function App() {
   const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [location.pathname]);
   // 2800ms gives the intro sequence time to breathe: blur-clear (0.3–1.5s) + hold + fade out (0.75s)
   const [appReady, setAppReady] = useState(false);
 
@@ -54,6 +59,7 @@ function App() {
             <AnimatePresence mode="wait">
               <Routes location={location} key={location.pathname}>
                 <Route path="/"             element={<HomePage />} />
+                <Route path="/bridal" element={<BridalPage />} />
                 <Route path="/shop"         element={<ShopPage />} />
                 <Route path="/products"     element={<Navigate to="/shop" replace />} />
                 <Route path="/products/:id" element={<ProductDetailsPage />} />
@@ -75,4 +81,3 @@ function App() {
 }
 
 export default App;
-

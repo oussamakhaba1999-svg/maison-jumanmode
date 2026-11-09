@@ -43,7 +43,7 @@ function ShopPage() {
       <main className="section-width section-padding py-16 md:py-20">
         <SectionTitle
           eyebrow="Collection"
-          title="All Pieces"
+          title="Handmade Bags"
           description="Minimal, handcrafted, and intentionally produced in limited quantities."
           align="left"
         />

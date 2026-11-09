@@ -11,6 +11,7 @@ import ReviewsSection from '../components/ReviewsSection';
 import PackagingSection from '../components/PackagingSection';
 import QuickViewModal from '../components/QuickViewModal';
 import { useCart } from '../context/CartContext';
+import BridalSection from '../components/BridalSection';
 
 const featuredProducts = products.filter((p) => p.featured).slice(0, 3);
 
@@ -91,8 +92,8 @@ function HeroSection() {
             variants={stagger.item}
             className="mx-auto mt-6 max-w-lg text-sm leading-relaxed text-white/65 md:text-base"
           >
-            Beaded, handcrafted, and born from passion — each MAISON JUMANMODE piece is a
-            limited-edition work of wearable art.
+            Beaded, handcrafted, and born from passion — MAISON JUMANMODE creates
+            handmade bags and bridal couture with meticulous care.
           </motion.p>
 
           {/* CTAs */}
@@ -288,7 +289,7 @@ function HomePage() {
         <section className="section-width section-padding py-24">
           <SectionTitle
             eyebrow="Curated Selection"
-            title="Featured Pieces"
+            title="Handmade Bags"
             description="Handcrafted in limited quantities — designed to be noticed."
           />
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -302,10 +303,12 @@ function HomePage() {
           </div>
           <div className="mt-14 text-center">
             <Link to="/shop" className="btn-outline">
-              View All Pieces
+              Explore Handmade Bags
             </Link>
           </div>
         </section>
+
+        <BridalSection />
 
         {/* 4. Brand Story */}
         <BrandStory />

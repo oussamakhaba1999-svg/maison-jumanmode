@@ -23,3 +23,7 @@ The contact form simulates submission and does not send messages. The checkout i
 ## Assets
 
 The homepage uses the supplied Singer sewing-machine portrait. Product images and remaining website code were imported from the provided Jumande.zip.
+
+## Collections
+
+Handmade Bags is at /#/shop and Bridal Dresses at /#/bridal. The bridal collection includes the Celestine Royal Gown, purchase/rental WhatsApp enquiries, and the supplied fitting-service copy. Original gown photographs were not included in the uploaded files; the atelier portrait is used with an accurate caption until original dress images are supplied.
