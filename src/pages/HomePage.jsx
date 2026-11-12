@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useRef, useState } from 'react';
-import products, { galleryImages, heroImage } from '../data/products';
+import products, { galleryImages } from '../data/products';
 import homepageHeroImage from '../assets/images/maison-jumanmode-atelier.jpeg';
 import ProductCard from '../components/ProductCard';
 import SectionTitle from '../components/SectionTitle';
@@ -189,10 +189,12 @@ function BrandStory() {
           {/* Main image */}
           <div className="overflow-hidden rounded-[2.5rem]">
             <img
-              src={heroImage}
-              alt="MAISON JUMANMODE atelier — beading by hand"
+              src={`${import.meta.env.BASE_URL}images/maison-jumanmode-our-story.jpeg`}
+              alt="MAISON JUMANMODE bridal couture atelier portrait"
               loading="lazy"
-              className="aspect-[3/4] w-full object-cover"
+              width="768"
+              height="1364"
+              className="h-auto w-full"
             />
           </div>
           {/* Floating card */}
