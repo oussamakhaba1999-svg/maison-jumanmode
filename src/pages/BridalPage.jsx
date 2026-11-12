@@ -1,29 +1,30 @@
 import PageTransition from '../components/PageTransition';
 import { bridal } from '../data/bridal';
 import { socialLinks } from '../components/SocialIcons';
-import atelier from '../assets/images/maison-jumanmode-atelier.jpeg';
+
 
 export default function BridalPage() {
-  const inquiry = (type) => socialLinks.whatsapp + '?text=' + encodeURIComponent('Hello MAISON JUMANMODE, I would like to enquire about ' + type + ' for The Celestine Royal Gown.');
+  const inquiry = (type) => socialLinks.whatsapp + '?text=' + encodeURIComponent('Hello MAISON JUMANMODE, I would like to enquire about ' + type + ' from the Bridal Wear collection.');
   return (
     <PageTransition>
       <main className="overflow-x-clip">
-        <section className="section-width section-padding grid gap-10 py-16 md:grid-cols-2 md:items-center md:gap-16">
-          <div className="min-w-0 space-y-6">
-            <p className="text-xs uppercase tracking-[0.3em] text-gold">Bridal Dresses</p>
-            <h1 className="font-heading text-4xl leading-tight text-cocoa md:text-6xl">{bridal.name}</h1>
-            <p className="text-sm font-semibold text-gold">{bridal.availability}</p>
-            <p className="text-base leading-relaxed text-cocoa/75">{bridal.description}</p>
-            <p className="text-base leading-relaxed text-cocoa/75">{bridal.finish}</p>
-            <div className="flex flex-wrap gap-3">
-              <a className="btn-primary" href={inquiry('purchase')} target="_blank" rel="noreferrer">Enquire About Purchase</a>
-              <a className="btn-outline" href={inquiry('rental')} target="_blank" rel="noreferrer">Enquire About Rental</a>
-            </div>
+        <section className="section-width section-padding py-16">
+          <div className="mx-auto mb-12 max-w-2xl text-center">
+            <p className="text-xs uppercase tracking-[0.3em] text-gold">The Collection</p>
+            <h1 className="mt-4 font-heading text-4xl text-cocoa md:text-6xl">Bridal Wear</h1>
+            <p className="mt-5 leading-relaxed text-cocoa/70">Discover our bridal creations and find the dress for your special day.</p>
           </div>
-          <figure className="min-w-0">
-            <img src={atelier} alt="MAISON JUMANMODE atelier: careful lace work at a Singer sewing machine" width="1024" height="1536" className="max-h-[740px] w-full rounded-3xl object-contain bg-sand/30" />
-            <figcaption className="mt-3 text-xs text-cocoa/60">The care behind every creation, inside our atelier.</figcaption>
-          </figure>
+          <div className="grid gap-10 md:grid-cols-2">
+            {[1, 2].map((number) => (
+              <article key={number} className="min-w-0 overflow-hidden rounded-3xl border border-sand/60 bg-white">
+                <img src={`${import.meta.env.BASE_URL}images/maison-jumanmode-bridal-collection-${number}.jpeg`} alt={`MAISON JUMANMODE bridal design 0${number}`} loading="lazy" className="h-auto w-full" />
+                <div className="space-y-4 p-6 md:p-8">
+                  <h2 className="font-heading text-2xl text-cocoa">Bridal Design 0{number}</h2>
+                  <a href={inquiry('Bridal Design 0' + number)} target="_blank" rel="noreferrer" className="btn-outline inline-flex">Enquire About This Dress</a>
+                </div>
+              </article>
+            ))}
+          </div>
         </section>
         <section aria-labelledby="bridal-service-title" className="bg-cocoa text-white">
           <div className="section-width section-padding py-16 md:py-24">
