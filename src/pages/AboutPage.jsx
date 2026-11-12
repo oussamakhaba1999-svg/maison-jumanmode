@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
-import { heroImage } from '../data/products';
 
 const pillars = [
   {
@@ -63,9 +62,11 @@ function AboutPage() {
               className="overflow-hidden rounded-4xl shadow-soft"
             >
               <img
-                src={heroImage}
-                alt="MAISON JUMANMODE handmade craftsmanship"
-                className="aspect-[4/5] w-full object-cover"
+                src={`${import.meta.env.BASE_URL}images/maison-jumanmode-our-story.jpeg`}
+                alt="MAISON JUMANMODE bridal couture atelier portrait"
+                width="768"
+                height="1364"
+                className="h-auto w-full"
               />
             </motion.div>
           </div>
