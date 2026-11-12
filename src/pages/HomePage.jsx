@@ -2,7 +2,6 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useRef, useState } from 'react';
 import products, { galleryImages } from '../data/products';
-import homepageHeroImage from '../assets/images/maison-jumanmode-atelier.jpeg';
 import ProductCard from '../components/ProductCard';
 import SectionTitle from '../components/SectionTitle';
 import PageTransition from '../components/PageTransition';
@@ -47,10 +46,10 @@ function HeroSection() {
         style={{ y: bgY }}
       >
         <img
-          src={homepageHeroImage}
-          alt="MAISON JUMANMODE artisan sewing lace at a Singer sewing machine"
-          width={1024}
-          height={1536}
+          src={`${import.meta.env.BASE_URL}images/maison-jumanmode-homepage.jpeg`}
+          alt="Maison Jumanmode bridal couture portrait with an embroidered wedding dress"
+          width={1154}
+          height={836}
           className="max-h-[90svh] w-full object-contain"
           fetchPriority="high"
           decoding="sync"
