@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import atelier from '../assets/images/maison-jumanmode-atelier.jpeg';
 import { bridal } from '../data/bridal';
 
 export default function BridalSection() {
@@ -7,7 +6,7 @@ export default function BridalSection() {
     <section id="bridal-dresses" aria-labelledby="bridal-section-title" className="border-y border-sand/60 bg-white/60">
       <div className="section-width section-padding grid gap-10 py-20 md:grid-cols-2 md:items-center md:gap-16">
         <figure className="min-w-0">
-          <img src={atelier} alt="Inside the MAISON JUMANMODE atelier: lace being sewn by hand at a Singer machine" width="1024" height="1536" loading="lazy" className="max-h-[640px] w-full rounded-3xl object-contain bg-sand/30" />
+          <img src={`${import.meta.env.BASE_URL}images/maison-jumanmode-bridal-atelier.jpeg`} alt="Inside the MAISON JUMANMODE atelier: lace being sewn by hand at a Singer machine" width="844" height="1262" loading="lazy" className="max-h-[640px] w-full rounded-3xl object-contain bg-sand/30" />
           <figcaption className="mt-3 text-xs tracking-wider text-cocoa/60">A glimpse inside our atelier.</figcaption>
         </figure>
         <div className="min-w-0 space-y-6">
