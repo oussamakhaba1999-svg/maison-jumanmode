@@ -286,25 +286,20 @@ function HomePage() {
         {/* 2. Scrolling ticker */}
         <Ticker />
 
-        {/* 3. Featured Products */}
-        <section className="section-width section-padding py-24">
-          <SectionTitle
-            eyebrow="Curated Selection"
-            title="Handmade Bags"
-            description="Handcrafted in limited quantities — designed to be noticed."
-          />
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {featuredProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                onQuickView={() => setQuickViewProduct(product)}
-              />
-            ))}
+        <section id="collections" aria-labelledby="collections-title" className="section-width section-padding py-24">
+          <div className="mb-12 text-center">
+            <p className="text-2xs font-semibold uppercase tracking-[0.35em] text-gold">Discover the Maison</p>
+            <h2 id="collections-title" className="mt-4 font-heading text-4xl text-cocoa md:text-5xl">Our Collections</h2>
+            <p className="mt-4 text-cocoa/65">Two collections. One passion for craftsmanship.</p>
           </div>
-          <div className="mt-14 text-center">
-            <Link to="/shop" className="btn-outline">
-              Explore Handmade Bags
+          <div className="grid gap-8 md:grid-cols-2">
+            <Link to="/shop" aria-label="Explore all handmade bags" className="group block overflow-hidden rounded-3xl border border-sand/60 bg-white transition hover:shadow-card focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold">
+              <div className="overflow-hidden bg-sand/20"><img src={featuredProducts[0].image} alt="MAISON JUMANMODE handmade beaded bags" loading="lazy" className="aspect-[4/5] w-full object-cover transition duration-700 group-hover:scale-[1.03]" /></div>
+              <div className="p-7 md:p-9"><h3 className="font-heading text-3xl text-cocoa">Handmade Bags</h3><p className="mt-3 text-sm leading-relaxed text-cocoa/65">Discover every handcrafted bag in our collection.</p><span className="mt-6 inline-block border-b border-gold pb-2 text-xs font-semibold uppercase tracking-widest text-cocoa">Explore All Bags →</span></div>
+            </Link>
+            <Link to="/bridal" aria-label="Explore all bridal wear" className="group block overflow-hidden rounded-3xl border border-sand/60 bg-white transition hover:shadow-card focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold">
+              <div className="overflow-hidden bg-sand/20"><img src={`${import.meta.env.BASE_URL}images/maison-jumanmode-bridal-collection-1.jpeg`} alt="MAISON JUMANMODE bridal wear collection" loading="lazy" className="aspect-[4/5] w-full object-cover object-top transition duration-700 group-hover:scale-[1.03]" /></div>
+              <div className="p-7 md:p-9"><h3 className="font-heading text-3xl text-cocoa">Bridal Wear</h3><p className="mt-3 text-sm leading-relaxed text-cocoa/65">Explore our bridal creations for your special day.</p><span className="mt-6 inline-block border-b border-gold pb-2 text-xs font-semibold uppercase tracking-widest text-cocoa">Explore All Bridal Wear →</span></div>
             </Link>
           </div>
         </section>
